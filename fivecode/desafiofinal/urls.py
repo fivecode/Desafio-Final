@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from fivecode.views import home, form, create
-
+from fivecode.views import home, form, create, view, edit, update, delete, formproduto, createproduto
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path ('', home, name= "home"),
-    path ('form/', form, name= "form"),
-    path ('create/', create, name= "create")
-]
+    path('', home, name= "home"),
+    path('empresa/novo/', form, name= "form"),
+    path('create/', create, name= "create"),
+    path('empresa/<int:pk_empresa>/produtos/', view, name="view"),
+    path('empresa/<int:pk>/edit/', edit, name = "edit"),
+    path('empresa/<int:pk>/update/', update, name = "update"),
+    path ('empresa/<int:pk>/delete/', delete, name = "delete"),
+    path('empresa/<int:pk_empresa>/produto/', formproduto, name= "formproduto"),
+    path('createproduto/14/', createproduto, name= "createproduto")   
+]    
+
