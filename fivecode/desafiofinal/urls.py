@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from fivecode.views import home, form, create, view, edit, update, delete, formproduto, createproduto
+from fivecode.views import home, form, create, view, edit, update, delete, formproduto, createproduto, deleteproduto, editarproduto,updateproduto
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name= "home"),
@@ -26,6 +26,9 @@ urlpatterns = [
     path('empresa/<int:pk>/update/', update, name = "update"),
     path ('empresa/<int:pk>/delete/', delete, name = "delete"),
     path('empresa/<int:pk_empresa>/produto/', formproduto, name= "formproduto"),
-    path('createproduto/14/', createproduto, name= "createproduto")   
+    path('createproduto/<int:pk_empresa>/', createproduto, name= "createproduto"),
+    path('empresa/<int:pk_empresa>/produto/<int:pk>/delete/', deleteproduto, name= "deleteproduto"),
+    path('empresa/<int:pk_empresa>/produto/<int:pk>/editar/', editarproduto, name= "editarproduto"),
+    path('empresa/<int:pk_empresa>/produto/<int:pk>/update/', updateproduto, name= "updateproduto")        
 ]    
 
