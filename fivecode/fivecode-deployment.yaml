@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fivecode
+spec:
+  selector:
+    matchLabels:
+      app: fivecode
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: fivecode
+    spec:
+      containers:
+        - name: fivecode-container
+          image: clauribeiro/fivecoderepo:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
