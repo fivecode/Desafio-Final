@@ -1,33 +1,106 @@
-<!DOCTYPE html>
-<html lang ='pt-br'>
-  <head>
-      <meta charset = "UTF-8" >
-      <title>Cadastro Empresa</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" >
-  </head>  
-  <body>
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+    <!--====== Title ======-->
+    <title>Cadastre sua empresa</title>
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!--====== Magnific Popup CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/LineIcons.css' %}">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" >
+</head>
+
+<body>
+   
+  <!--====== NAVBAR PART START ======-->
+
+  <nav class="navbar bg-primary">
+    <a class="navbar-brand col-md-7">
+      <img src="{% static 'images/divas.png' %}" width="70" height="70" alt="">
+      <ul class="navbar-brand mx-md-auto font-weight-bold text-white align-bottom">
+        <li>
+          <a>Cadastre sua empresa</a>
+        </li>
+      </ul>
+    </a>
+  </nav>
+       
+    <!--====== NAVBAR PART ENDS ======-->
+
+    <!--====== FORM CADASTRO EMPRESA START ======-->
+    <br>
       <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h3> Cadastro </h3>
-      </div>
-      
-      <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <a href ="/" class = "btn btn-info text-center"> Voltar </a>
+        <a href ="/" class = "btn btn-outline-secondary"> Voltar </a>
       </div> 
       <div id="result"></div>
 
-      <div class="col-8 m-auto pt-3 pb-2 text-center">
+      <div class="col-md-7 text-center">
         <form name="form" id="form" action = "{% if db %}/empresa/{{db.id}}/update/{%else%}/create/{% endif %}" method="post">
               {% csrf_token %}
-              <div class ="form-group mt-4" >CNPJ: {{form.cnpj}} </div>
-              <div class ="form-group mt-4" >Nome da Empresa: {{form.nomeDaEmpresa}} </div>
-              <div class ="form-group mt-4" >e-mail: {{form.email}} </div>
-              <div class ="form-group mt-4" >Telefone: {{form.telefone}}</div> 
+              <div class ="form-group mt-4 text-right" >CNPJ: {{form.cnpj}} </div>
+              <div class ="form-group mt-4 text-right" >Nome da Empresa: {{form.nomeDaEmpresa}} </div>
+              <div class ="form-group mt-4 text-right" >e-mail: {{form.email}} </div>
+              <div class ="form-group mt-4 text-right" >Telefone: {{form.telefone}}</div> 
               <br> 
-              <input  type ="submit" class = "btn btn-success" value="salvar">
+              <div class ="form-group col-md-11 text-right" >
+               <input  type ="submit" class = "btn btn-warning btn-lg font-weight-bold text-white" value="Salvar">
+              </div>
         </form>
       </div>
-    
       {% load static %}
       <script src = "{% static 'javascript.js' %}"></script>
-  </body>  
+
+<!--====== FORM CADASTRO EMPRESA END ======-->
+  
+<!--====== Jquery js ======-->
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+<!--====== Bootstrap js ======-->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!--====== Slick js ======-->
+<script src="{% static 'js/slick.min.js' %}"></script>
+
+<!--====== Magnific Popup js ======-->
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+<!--====== Ajax Contact js ======-->
+<script src="{% static 'js/ajax-contact.js' %}"></script>
+
+<!--====== Isotope js ======-->
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+<!--====== Scrolling Nav js ======-->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+<!--====== Main js ======-->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
 </html>

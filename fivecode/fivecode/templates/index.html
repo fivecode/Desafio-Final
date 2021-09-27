@@ -1,29 +1,121 @@
-<!DOCTYPE html>
-<html lang ='pt-br'>
-  <head>
-      <meta charset = "UTF-8" >
-      <title>Cadastro Empresa</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" >
-  </head>  
-  <body>
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+    <!--====== Title ======-->
+    <title>Divas Cosméticos | Parceiros</title>
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!--====== Magnific Popup CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/LineIcons.css' %}">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" >
+</head>
+
+<body>
+   
+    <!--====== NAVBAR TWO PART START ======-->
+
+    <section class="navbar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                       
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'images/divas.png' %}" alt="Logo">
+                        </a>                                                                                     
+                    </nav> 
+                </div>
+            </div> 
+        </div> 
+    </section>
+
+    <!--====== NAVBAR TWO PART ENDS ======-->
+    
+    <!--====== SLIDER PART START ======-->
+
+    <section id="home" class="slider_area">
+        <div id="carouselThree" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselThree" data-slide-to="0" class="active"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="slider-content">
+                                    <h1 class="title">Juntos somos mais fortes</h1>
+                                    <p class="text">Seja parceiro da maior plataforma de venda de cosméticos do Brasil. Venda online e fortaleça o seu negócio.</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="slider-image-box d-none d-lg-flex align-items-end">
+                        <div class="slider-image">
+                            <img src="{% static 'images/slider/slider-foto.png' %}" alt="Hero">
+                        </div> 
+                    </div> 
+                </div> 
+              </div>
+        </div>
+    </section>
+
+    <!--====== SLIDER PART ENDS ======-->
+    
+    <!--====== JOB START ======-->
+
+    <section id="pricing" class="pricing-area ">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-md-10">
+                  <div class="section-title text-center pb-25">
+                      <h3 class="title">Cadastre a sua empresa aqui</h3>
+                  </div> 
+              </div>
+          </div> 
+      </div> 
+  </section>
+
+  <!--====== JOB ENDS ======-->
+
+  <!--====== LISTA START ======-->
+             
       <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h3> Divas Cosmeticos </h3>
-      </div>
-      
-      <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <a href ="/empresa/novo" class = "btn btn-success text-center"> Cadastrar sua empresa </a>
+        <a href ="/empresa/novo" class = "btn btn-warning btn-lg font-weight-bold text-white"> Cadastre sua empresa </a>
       </div> 
 
       <div class="col-8 m-auto pt-2 pb-2 text-center">
         <table class="table">
-          <thead class="thead-dark">
+          <thead class="table table-striped">
             <tr>
               <th scope="col">ID</th>                              
               <th scope="col">CNPJ</th>
               <th scope="col">Nome da Empresa</th>
               <th scope="col">E-mail</th>
               <th scope="col">Telefone</th>
-              <th scope="col">Acoes</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -35,9 +127,9 @@
               <td>{{dbs.email}}</td>
               <td>{{dbs.telefone}}</td>
               <td>
-                <a href="/empresa/{{dbs.id}}/produtos" class = "btn btn-dark">Visualizar Produtos</a>
-                <a href="/empresa/{{dbs.id}}/edit/" class = "btn btn-primary">Editar</a>
-                <a href="/empresa/{{dbs.id}}/delete" class = "btn btn-danger btnDel">Deletar</a>
+                <a href="/empresa/{{dbs.id}}/produtos" class = "btn btn-outline-secondary">Visualizar Produtos</a>
+                <a href="/empresa/{{dbs.id}}/edit/" class = "btn btn-outline-primary">Editar</a>
+                <a href="/empresa/{{dbs.id}}/delete" class = "btn btn-outline-danger">Deletar</a>
               </td>
             </tr>
             {% endfor %}
@@ -48,5 +140,57 @@
 
       {% load static %}
       <script src = "{% static 'javascript.js' %}"></script>
-  </body>  
+
+ <!--====== LISTA END======-->
+
+ <!--====== FOOTER PART START ======-->
+
+ <section class="footer-area">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-14">
+                        
+              <div class="copyright text-left mt-35">
+                  <p class="text">Desenvolvido por </p>
+              </div> <!--  copyright -->
+              <div class="footer-logo text-left">
+                <a class="mt-30" ><img src="{% static 'images/fivecode.png' %}" alt="Logo"></a>
+              </div> <!-- footer logo -->
+          </div>
+      </div> <!-- row -->
+  </div> <!-- container -->
+</section>
+
+<!--====== FOOTER PART ENDS ======-->
+
+<!--====== Jquery js ======-->
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+<!--====== Bootstrap js ======-->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!--====== Slick js ======-->
+<script src="{% static 'js/slick.min.js' %}"></script>
+
+<!--====== Magnific Popup js ======-->
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+<!--====== Ajax Contact js ======-->
+<script src="{% static 'js/ajax-contact.js' %}"></script>
+
+<!--====== Isotope js ======-->
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+<!--====== Scrolling Nav js ======-->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+<!--====== Main js ======-->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
 </html>

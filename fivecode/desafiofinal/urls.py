@@ -14,7 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 from fivecode.views import home, form, create, view, edit, update, delete, formproduto, createproduto, deleteproduto, editarproduto,updateproduto
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +34,5 @@ urlpatterns = [
     path('empresa/<int:pk_empresa>/produto/<int:pk>/delete/', deleteproduto, name= "deleteproduto"),
     path('empresa/<int:pk_empresa>/produto/<int:pk>/editar/', editarproduto, name= "editarproduto"),
     path('empresa/<int:pk_empresa>/produto/<int:pk>/update/', updateproduto, name= "updateproduto")        
-]    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
