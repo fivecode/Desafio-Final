@@ -1,7 +1,7 @@
 #  Five-Code-Luiza-Code
  Projeto criado para o desenvolvimento do Desafio Final da 3ª Edição do Luiza Code - GCP
 
-## Desevolvido por:
+## Desenvolvido por:
 - [ Carla Santos ] (https://github.com/CarlaCdosSantos)
 - [ Claudia Ribeiro] (https://github.com/clauribeiro21)
 - [ Erica Bernandes] (https://github.com/ericabernardess)
